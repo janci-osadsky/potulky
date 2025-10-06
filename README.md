@@ -1,0 +1,2 @@
+# potulky
+Spoznaj svoje mesto
