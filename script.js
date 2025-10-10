@@ -44,19 +44,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const hrefValue = this.getAttribute('href');
+            // Only intercept internal hash links
+            if (hrefValue && hrefValue.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(hrefValue);
+                if (targetSection) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.step, .game-card, .highlight, .testimonial, .team-member');
+    const animateElements = document.querySelectorAll('.step, .game-card, .highlight, .testimonial, .team-member, .partner-card');
     animateElements.forEach(el => {
         observer.observe(el);
     });
@@ -347,6 +347,7 @@ const additionalStyles = `
     .highlight,
     .testimonial,
     .team-member,
+    .partner-card,
     .cta-button,
     .game-button {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
