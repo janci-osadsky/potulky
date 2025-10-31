@@ -22,9 +22,15 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home">
-                    <img src="img/12.png" alt="Potulky Logo" class="logo-image" style="margin-top: -15px;">
-                    <img src="img/8.png" alt="Potulky Logo" class="logo-img2">
+                    <!-- Larger circular icon and wordmark image -->
+                    <img src="img/12.png" alt="Potulky Logo" class="logo-image">
+                    <img src="img/8.png" alt="Potulky wordmark" class="logo-img2">
                 </a>
+            </div>
+            <!-- Language toggle -->
+            <div class="lang-toggle" id="lang-toggle" aria-label="Language switcher">
+                <button data-lang="sk" class="lang-btn active">SK</button>
+                <button data-lang="en" class="lang-btn">EN</button>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Domov</a>
@@ -32,7 +38,7 @@
                 <a href="#how-it-works" class="nav-link">Ako to funguje</a>
                 <a href="#team" class="nav-link">Tím</a>
                 <a href="#why-potulky" class="nav-link">Prečo Potulky</a>
-                <a href="https://youtu.be/dQw4w9WgXcQ" class="nav-link" target="_blank" rel="noopener noreferrer">Spustiť aplikáciu</a>
+                <a href="#" class="nav-link download-cta" data-download="true">Stiahni appku</a>
 
             </div>
             <div class="nav-toggle" id="nav-toggle">
@@ -48,7 +54,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Objavte svoje mesto cez dobrodružstvo!</h1>
             <p class="hero-subtitle">Hravé prehliadky plné hádaniek, príbehov a prekvapení.</p>
-            <a href="https://youtu.be/dQw4w9WgXcQ" class="cta-button" target="_blank" rel="noopener noreferrer" style="margin-left: 12px;">Začnite svoje dobrodružstvo</a>
+                <a href="#" class="cta-button download-cta" data-download="true" style="margin-left: 12px;">Stiahni appku</a>
         </div>
         <div class="hero-image">
             <div class="hero-placeholder"></div>
@@ -58,8 +64,8 @@
     <section id="our-story" class="our-story">
         <div class="container">
             <h2 class="section-title">Náš Príbeh: Ako sa zrodili Potulky</h2>
-            <div class="story-content">
-                <p>Všetko to začalo jednoduchou myšlienkou: čo keby sa objavovanie mesta stalo dobrodružstvom? Čo keby sa ulice, námestia a skryté zákutia premenili na herné plány plné tajomstiev a výziev? Z tejto iskry sa zrodili Potulky – s vášňou pre históriu, láskou k príbehom a túžbou spájať ľudí.</p>
+                <div class="story-content">
+                <p data-i18n="ourStory.p1">Všetko to začalo jednoduchou myšlienkou: čo keby sa objavovanie mesta stalo dobrodružstvom? Čo keby sa ulice, námestia a skryté zákutia premenili na herné plány plné tajomstiev a výziev? Z tejto iskry sa zrodili Potulky – s vášňou pre históriu, láskou k príbehom a túžbou spájať ľudí.</p>
                 <p>Predstavte si, že kráčate po známych cestách, no zrazu sa pred vami otvára úplne nový svet. Každý kameň, každá budova má svoj príbeh, ktorý čaká na odhalenie. Naši tvorcovia hier, inšpirovaní miestnymi legendami a zabudnutými udalosťami, starostlivo tkajú siete hádaniek a úloh, ktoré vás vtiahnu do deja.</p>
                 <p>Nie sme len o hrách; sme o zážitkoch. O smiechu s priateľmi, o prekvapených výkrikoch, keď rozlúštite zložitú hádanku, o pocite víťazstva, keď odhalíte skrytú pamiatku. Potulky sú pozvánkou k spoločnému objavovaniu, k prežívaniu mesta inak, k vytváraniu spomienok, ktoré pretrvajú dlho po tom, ako sa hra skončí.</p>
                 <p>Pridajte sa k nám a nechajte sa uniesť do sveta, kde je každá prechádzka dobrodružstvom a každé mesto nekonečným príbehom. Vaše ďalšie dobrodružstvo čaká!</p>
@@ -69,7 +75,7 @@
                 </p>
                 <p style="margin-top: 1rem;">
                     Pripravení vyraziť? 
-                    <a href="https://youtu.be/dQw4w9WgXcQ" class="inline-cta" target="_blank" rel="noopener noreferrer">Spustite aplikáciu</a> a začnite objavovať.
+                    <a href="#" class="inline-cta download-cta" data-download="true">Spustite aplikáciu</a> a začnite objavovať.
                 </p>
             </div>
         </div>
@@ -154,41 +160,32 @@
     <!-- How it Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">Ako to funguje</h2>
-            <div class="steps-grid">
+            <h2 class="section-title">Ako to funguje — krok za krokom</h2>
+            <p class="lead">Jednoducho: vyberiete hru, vyriešite krátke hádanky priamo v meste a odhalíte príbeh. Celé to zvládnete bez inštalácií (alebo si stiahnete appku pre lepší zážitok).</p>
+            <div class="steps-grid timeline">
                 <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11H1v12h8V11zM23 11h-8v12h8V11z"/>
-                            <path d="M9 11V7a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v4"/>
-                        </svg>
-                    </div>
-                    <h3>Vyberte si svoje dobrodružstvo</h3>
-                    <p>Vyberte si z našej kurátorskej kolekcie mestských tajomných prehliadok navrhnutých pre vaše mesto.</p>
+                    <div class="step-icon">1</div>
+                    <h3>Vyberte hru</h3>
+                    <p>Prelistujte odporúčané dobrodružstvá a vyberte si, ktoré chcete hrať. Krátky popis pomôže vybrať podľa dĺžky a témy.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Odomknite skryté príbehy</h3>
-                    <p>Zistite fascinujúcu miestnu históriu a objavte tajomstvá, ktoré nepoznajú ani miestni obyvatelia.</p>
+                    <div class="step-icon">2</div>
+                    <h3>Vyrazte do mesta</h3>
+                    <p>Dostavte sa na štartovaciu lokalitu a postupujte podľa stôp. Hádanky sú jednoduché a smerujú k ďalšiemu bodu.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
-                        </svg>
-                    </div>
-                    <h3>Riešte hádanky a objavujte</h3>
-                    <p>Sledujte stopy, rozlúšťte hádanky a objavte skryté poklady v uliciach vášho mesta.</p>
+                    <div class="step-icon">3</div>
+                    <h3>Odomknite príbehy</h3>
+                    <p>Každé vyriešenie odhalí kus miestnej histórie alebo tip na zaujímavé miesto — ľahko a zábavne.</p>
                 </div>
-               
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Zdieľajte zážitok</h3>
+                    <p>Na konci odporúčame podeliť sa o fotky a hodnotenie — alebo použiť appku pre pokročilé funkcie.</p>
+                </div>
             </div>
             <div class="container" style="text-align: center; margin-top: 2rem;">
-                <a href="https://youtu.be/dQw4w9WgXcQ" class="game-button" target="_blank" rel="noopener noreferrer">Vyskúšajte aplikáciu</a>
+                <a href="#" class="game-button download-cta" data-download="true">Stiahni appku</a>
             </div>
         </div>
     </section>
@@ -233,35 +230,41 @@
     <section id="partners" class="partners">
         <div class="container">
             <h2 class="section-title">Naši partneri</h2>
+            <p class="lead">Sme otvorení spolupráci s múzeami, hotely, reštauráciami a miestnymi službami. Ponúkame jednoduché partnerstvá, ktoré pomôžu cielovým skupinám (turisti, rodiny, školské výlety) nájsť vaše služby.</p>
             <div class="partners-grid">
                 <div class="partner-card">
                     <div class="partner-logo">
-                        <div class="partner-placeholder">🏛️ Múzeum</div>
+                        <div class="partner-placeholder">🏛️</div>
                     </div>
-                    <h3>Mestské múzeum</h3>
-                    <p>Spolupracujeme s miestnym múzeom na autentických historických príbehoch.</p>
+                    <h3>Múzeá & výstavy</h3>
+                    <p>Zviditeľnite svoje expozície vo forme herných zastavení a tematických trás. Ideálne pre prepojenie výstavy s mestskou hrou.</p>
                 </div>
                 <div class="partner-card">
                     <div class="partner-logo">
-                        <div class="partner-placeholder">🏨 Hotel</div>
+                        <div class="partner-placeholder">🏨</div>
                     </div>
-                    <h3>Grand Hotel</h3>
-                    <p>Ubytovanie pre návštevníkov a špeciálne balíčky pre dobrodružné zážitky.</p>
+                    <h3>Ubytovanie</h3>
+                    <p>Nabízime balíčky a zľavy pre hráčov Potuliek — výborné pre hotely a penzióny, ktoré chcú prilákať rodiny a turistov.</p>
                 </div>
                 <div class="partner-card">
                     <div class="partner-logo">
-                        <div class="partner-placeholder">🍽️ Reštaurácia</div>
+                        <div class="partner-placeholder">🍽️</div>
                     </div>
-                    <h3>Mestská reštaurácia</h3>
-                    <p>Autentické miestne jedlá a tradičné recepty ako súčasť dobrodružstva.</p>
+                    <h3>Reštaurácie & kaviarne</h3>
+                    <p>Zahrňte špeciálne ponuky pre účastníkov hier a staňte sa jedným z odporúčaných miest v trasách.</p>
                 </div>
                 <div class="partner-card">
                     <div class="partner-logo">
-                        <div class="partner-placeholder">🚌 Doprava</div>
+                        <div class="partner-placeholder">🚌</div>
                     </div>
-                    <h3>Mestská doprava</h3>
-                    <p>Zľavy na verejnú dopravu pre všetkých účastníkov našich hier.</p>
+                    <h3>Mestské služby & doprava</h3>
+                    <p>Spolupracujte na logistike a zľavách pre návštevníkov. Pomôžeme cieliť práve na tých, ktorí potrebujú dopravu alebo sprievodné služby.</p>
                 </div>
+            </div>
+
+            <div class="partners-callout" style="text-align:center; margin-top:2rem;">
+                <p>Chcete sa stať partnerom? Ponúkneme jednoduchú spoluprácu a marketingové zobrazenie v hrách.</p>
+                <a href="mailto:erma.riddles@potulky.com" class="game-button">Kontaktujte nás</a>
             </div>
         </div>
     </section>
@@ -275,7 +278,7 @@
                     <p>Veríme, že každé mesto má príbehy, ktoré čakajú na objavenie. Naše mestské dobrodružné hry kombinujú vzrušenie z prieskumu s radosťou z učenia, vytvárajúc nezabudnuteľné zážitky, ktoré spájajú ľudí.</p>
                     <p style="margin-top: 1rem;">
                         Chcete si to vyskúšať? 
-                        <a href="https://youtu.be/dQw4w9WgXcQ" class="inline-cta" target="_blank" rel="noopener noreferrer">Spustite aplikáciu</a> a vydajte sa na dobrodružstvo.
+                        <a href="#" class="inline-cta download-cta" data-download="true">Spustite aplikáciu</a> a vydajte sa na dobrodružstvo.
                     </p>
                 </div>
                 <div class="highlights-grid">
@@ -359,7 +362,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>Potulky</h3>
+                    <!-- Wordmark image for brand -->
+                    <img src="img/8.png" alt="Potulky" class="footer-wordmark">
                     <p>Objavte svoje mesto cez dobrodružstvo</p>
                 </div>
                 <div class="footer-links">
@@ -369,7 +373,7 @@
                     <a href="#how-it-works">Ako to funguje</a>
                     <a href="#team">Tím</a>
                     <a href="#partners">Partneri</a>
-                    <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Spustiť aplikáciu</a>
+                    <a href="#" class="download-cta" data-download="true">Stiahni appku</a>
                 </div>
                 <div class="footer-social">
                     <a href="#" class="social-link">
@@ -390,10 +394,26 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Potulky. Všetky práva vyhradené. | <a href="mailto:info@potulky.com">info@potulky.com</a></p>
+                <p>&copy; 2024 Potulky. Všetky práva vyhradené. | <a href="mailto:erma.riddles@potulky.com">erma.riddles@potulky.com</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Download / App redirect popup modal -->
+    <div id="download-modal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+            <h3 id="modal-title">Stiahni Potulky</h3>
+            <p>Vyberte svoju platformu alebo pokračujte na web. Ak chcete prejsť priamo do appky, kliknite na príslušný obchod.</p>
+            <div class="modal-actions">
+                <a href="#" id="google-play" class="store-btn" target="_blank" rel="noopener noreferrer">Google Play</a>
+                <a href="#" id="app-store" class="store-btn" target="_blank" rel="noopener noreferrer">App Store</a>
+                <a href="#" id="open-web" class="store-btn secondary">Prejsť na web</a>
+            </div>
+            <p class="modal-note">Ak sa popup zobrazuje opakovane, povoľte presmerovania alebo navštívte náš web priamo.</p>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

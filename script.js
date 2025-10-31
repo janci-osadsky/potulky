@@ -358,3 +358,123 @@ const additionalStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
+
+// ===== DOWNLOAD POPUP / MODAL =====
+const downloadModal = document.getElementById('download-modal');
+const modalBackdrop = document.getElementById('modal-backdrop');
+const modalClose = document.getElementById('modal-close');
+const googlePlay = document.getElementById('google-play');
+const appStore = document.getElementById('app-store');
+const openWeb = document.getElementById('open-web');
+
+// Configure these URLs to the real stores when available
+const googlePlayURL = 'https://play.google.com/store/apps';
+const appStoreURL = 'https://www.apple.com/app-store/';
+const webURL = window.location.href;
+
+function showDownloadModal() {
+    if (!downloadModal) return;
+    downloadModal.setAttribute('aria-hidden', 'false');
+    downloadModal.classList.add('open');
+}
+
+function hideDownloadModal() {
+    if (!downloadModal) return;
+    downloadModal.setAttribute('aria-hidden', 'true');
+    downloadModal.classList.remove('open');
+}
+
+if (modalBackdrop) modalBackdrop.addEventListener('click', hideDownloadModal);
+if (modalClose) modalClose.addEventListener('click', hideDownloadModal);
+if (googlePlay) googlePlay.setAttribute('href', googlePlayURL);
+if (appStore) appStore.setAttribute('href', appStoreURL);
+if (openWeb) openWeb.addEventListener('click', (e) => { e.preventDefault(); window.location.href = webURL; });
+
+// Links that should show the popup: any element with class .download-cta
+const downloadCTAs = document.querySelectorAll('.download-cta');
+downloadCTAs.forEach(el => {
+    el.addEventListener('click', function(e) {
+        e.preventDefault();
+        // If link has data-no-popup, don't show popup and navigate directly
+        if (this.dataset.noPopup === 'true') {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') window.location.href = href;
+            return;
+        }
+        showDownloadModal();
+    });
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') hideDownloadModal();
+});
+
+// ===== LANGUAGE TOGGLE (basic) =====
+const langToggle = document.getElementById('lang-toggle');
+const langButtons = langToggle ? langToggle.querySelectorAll('.lang-btn') : [];
+
+// Minimal translation map — expand as needed
+const translations = {
+    en: {
+        'nav.home': 'Home',
+        'nav.games': 'Games',
+        'nav.how': 'How it works',
+        'nav.team': 'Team',
+        'nav.why': 'Why Potulky',
+        'cta.download': 'Download app',
+        'hero.title': 'Discover your city through adventure!',
+        'hero.subtitle': 'Playful tours full of riddles, stories and surprises.',
+        'how.title': 'How it works — step by step',
+        'partners.title': 'Our partners'
+    },
+    sk: {
+        'nav.home': 'Domov',
+        'nav.games': 'Hry',
+        'nav.how': 'Ako to funguje',
+        'nav.team': 'Tím',
+        'nav.why': 'Prečo Potulky',
+        'cta.download': 'Stiahni appku',
+        'hero.title': 'Objavte svoje mesto cez dobrodružstvo!',
+        'hero.subtitle': 'Hravé prehliadky plné hádaniek, príbehov a prekvapení.',
+        'how.title': 'Ako to funguje — krok za krokom',
+        'partners.title': 'Naši partneri'
+    }
+};
+
+function setText(selector, text) {
+    const el = document.querySelector(selector);
+    if (el) el.textContent = text;
+}
+
+function applyLanguage(lang) {
+    const map = translations[lang] || translations.sk;
+    // Nav links
+    setText('.nav-menu .nav-link[href="#home"]', map['nav.home']);
+    setText('.nav-menu .nav-link[href="#games"]', map['nav.games']);
+    setText('.nav-menu .nav-link[href="#how-it-works"]', map['nav.how']);
+    setText('.nav-menu .nav-link[href="#team"]', map['nav.team']);
+    setText('.nav-menu .nav-link[href="#why-potulky"]', map['nav.why']);
+    // Hero
+    setText('.hero-title', map['hero.title']);
+    setText('.hero-subtitle', map['hero.subtitle']);
+    // CTA
+    document.querySelectorAll('.download-cta').forEach(a => a.textContent = map['cta.download']);
+    // Section titles
+    setText('#how-it-works .section-title', map['how.title']);
+    setText('#partners .section-title', map['partners.title']);
+}
+
+if (langButtons.length) {
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const lang = this.dataset.lang;
+            document.documentElement.setAttribute('lang', lang);
+            applyLanguage(lang);
+        });
+    });
+    // initialize to SK
+    applyLanguage('sk');
+}
