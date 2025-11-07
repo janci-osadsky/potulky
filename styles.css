@@ -223,8 +223,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-size: 1.3rem;
-    color: #6b46c1;
-    -webkit-text-stroke: 1.5px rgba(136, 84, 161, 0.95);
+    color: #8a8792;
+    -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.95);
     text-shadow: 0 2px 8px rgba(0,0,0,0.45);
     margin-bottom: 2rem;
     font-weight: 500;
